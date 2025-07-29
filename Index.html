@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Redirect</title>
+</head>
+<body>
+  <form id="searchForm">
+    <input type="text" id="searchInput" placeholder="Enter keyword..." required>
+    <button type="submit">Go</button>
+  </form>
+
+  <script>
+    document.getElementById("searchForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const query = document.getElementById("searchInput").value.trim().toLowerCase();
+
+      // Keyword-to-link mapping (OneDrive or websites)
+      const links = {
+        "projectx": "https://fallasinc-my.sharepoint.com/:f:/g/personal/faautomate_fallasautomation_com/EvlbDVYHiD9PlDJTzEo7xRwBGWq6rGFsfDvKVClcTicgDA?e=70Nqxp",
+        "budget2025": "https://onedrive.live.com/?id=BUDGET2025_ID&cid=YOUR_CID",
+        "training": "https://onedrive.live.com/?id=TRAINING_ID&cid=YOUR_CID",
+        "companysite": "https://www.yourcompany.com",
+        "support": "https://support.microsoft.com",
+        "news": "https://www.bbc.com/news",
+		"google": "https://Google.com"
+      };
+
+      if (links[query]) {
+        window.location.href = links[query];
+      } else {
+        alert("No matching link found for: " + query);
+      }
+    });
+  </script>
+</body>
+</html>
